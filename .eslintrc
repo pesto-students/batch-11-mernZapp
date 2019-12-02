@@ -1,12 +1,21 @@
 {
   "extends": "airbnb",
+<<<<<<< HEAD
+=======
+  "env": {
+    "jest": true
+  },
+>>>>>>> Setup Monorepo and add husky, linting.
   "rules": {
     "import/prefer-default-export": 0,
     "no-restricted-syntax": 0,
     "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }]
+<<<<<<< HEAD
   },
   "env": {
     "browser": true,
     "node": true
+=======
+>>>>>>> Setup Monorepo and add husky, linting.
   }
 }
