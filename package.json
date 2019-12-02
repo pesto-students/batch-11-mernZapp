@@ -1,0 +1,20 @@
+{
+  "name": "batch-11-mernZapp",
+  "version": "1.0.0",
+  "description": "Creating clone of Zapier",
+  "repository": "git@github.com:pesto-students/batch-11-mernZapp.git",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "frontend": "yarn workspace frontend start",
+    "backend": "yarn workspace backend start",
+    "start": "concurrently --kill-others-on-fail 'yarn frontend' 'yarn backend'"
+  },
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  }
+}
