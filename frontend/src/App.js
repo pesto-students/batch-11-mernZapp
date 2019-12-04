@@ -1,17 +1,12 @@
-// eslint-disable-next-line import/no-unresolved
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SignIn from './containers/signIn/SignIn';
 
-const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Initial Zapier
-      </p>
-    </header>
-  </div>
-);
-
+function App() {
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
+}
 export default App;
