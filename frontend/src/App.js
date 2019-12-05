@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
-import SignIn from './containers/signIn/SignIn';
+import React from "react";
+import "./App.css";
+import SignUp from "./containers/signUp/SignUp";
 
 function App() {
   return (
     <div>
-      <SignIn />
+      <SignUp />
     </div>
   );
 }
