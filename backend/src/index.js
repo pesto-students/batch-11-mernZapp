@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(userRouter);
 
+
 initDb().then(() => {
   app.listen(3000, () => {
     console.log('App listening on port 3000!');
@@ -15,3 +16,5 @@ initDb().then(() => {
 }).catch(error => {
   console.log(error);
 });
+
+export default app;
