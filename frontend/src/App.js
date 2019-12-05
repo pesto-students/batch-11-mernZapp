@@ -1,6 +1,6 @@
-import React from "react";
-import "./App.css";
-import SignUp from "./containers/signUp/SignUp";
+import React from 'react';
+import './App.css';
+import SignUp from './containers/signUp/SignUp';
 
 function App() {
   return (

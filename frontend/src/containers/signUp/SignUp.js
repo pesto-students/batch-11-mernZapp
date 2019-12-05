@@ -1,15 +1,15 @@
-import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Link from "@material-ui/core/Link";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import {
   Wrapper,
   Form,
   StyledButton,
-  GridSpaced
-} from "../../components/FormCss";
-import ZappTextField from "../../components/TextField";
+  GridSpaced,
+} from '../../components/FormCss';
+import ZappTextField from '../../components/TextField';
 
 export default function SignUp() {
   return (
@@ -17,8 +17,7 @@ export default function SignUp() {
       <CssBaseline />
       <Wrapper>
         <Typography component="h1" variant="h5">
-          {" "}
-          Sign up{" "}
+          Sign up
         </Typography>
         <Form noValidate>
           <ZappTextField
@@ -57,7 +56,9 @@ export default function SignUp() {
             Sign Up
           </StyledButton>
           <GridSpaced>
-            <Link to="#"> {"Already have an account? Sign In"}</Link>
+            <Link to="/signin">
+              Already have an account? Sign In
+            </Link>
           </GridSpaced>
         </Form>
       </Wrapper>
