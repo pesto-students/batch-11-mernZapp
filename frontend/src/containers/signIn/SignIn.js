@@ -23,6 +23,7 @@ export default function SignIn() {
         <Form noValidate>
           <ZappTextField
             id="username"
+            type="text"
             label="Username"
             name="username"
             autoComplete="username"

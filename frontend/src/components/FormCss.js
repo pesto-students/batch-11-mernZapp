@@ -3,7 +3,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const StyledButton = styled(Button)`
-  margin: 24px 0px 16px;
+  margin: ${(props) => props.margin || '24px 0px 16px'};
+  color: ${(props) => props.color || 'primary'}
 `;
 
 const GridSpaced = styled(Grid)`
