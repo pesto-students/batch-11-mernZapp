@@ -29,6 +29,8 @@
     "nodemon": "^2.0.1"
   },
   "dependencies": {
+    "@slack/events-api": "^2.3.0",
+    "@slack/web-api": "^5.6.0",
     "bcrypt": "^3.0.7",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
