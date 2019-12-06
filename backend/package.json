@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run prod",
-    "server": "babel-node ./src/index.js",
+    "server": "babel-node -r ../node_modules/dotenv/config ./src/index.js dotenv_config_path=./config/dev.env",
     "server:prod": "node ./dist/index.js",
     "dev": "NODE_ENV=development npm-run-all server",
     "clean": "rimraf dist",
