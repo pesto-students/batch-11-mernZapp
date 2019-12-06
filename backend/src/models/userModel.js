@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  tokens: [{
+    token: {
+      type: String,
+      required: true,
+    },
+  }],
 }, {
   timestamps: true,
 });
@@ -47,7 +53,6 @@ userSchema.statics.findByCredentials = async function findByCredentials(email, p
 userSchema.pre('save', async function hashAndSavePassword(next) {
   const user = this;
   if (user.isModified('password')) {
-    // console.log(user.password, 'presave');
     user.password = await bcrypt.hash(user.password, SALT_WORK_FACTOR);
   }
   next();
@@ -60,9 +65,13 @@ userSchema.statics.comparePassword = async function comparePassword(candidatePas
 
 userSchema.methods.generateAuthToken = async function generateAuthToken() {
   const user = this;
-  const token = jwt.sign({ _id: user._id.toString() }, process.env.JSON_WEB_SECRET_KEY);
-
-  // await user.save();
+  // const timeInMilliseconds = Date.now();
+  const token = jwt
+    .sign({ _id: user._id.toString() }, process.env.JSON_WEB_SECRET_KEY);
+  user.tokens = user.tokens.concat({
+    token,
+  });
+  await user.save();
   return token;
 };
 

@@ -26,7 +26,20 @@ const userCreate = async (req, res) => {
   }
 };
 
+const logoutUser = async (req, res) => {
+  try {
+    // console.log(req.user.tokens)
+    req.user.tokens = req.user.tokens.filter(token => token.token !== req.token);
+    // console.log(req.user.tokens)
+    await req.user.save();
+    res.send();
+  } catch (error) {
+    res.status(500).send();
+  }
+};
+
 export {
   userLogin,
   userCreate,
+  logoutUser,
 };
