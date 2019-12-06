@@ -12,7 +12,7 @@
   "scripts": {
     "frontend": "yarn workspace frontend start",
     "backend": "yarn workspace backend build",
-    "start": "concurrently --kill-others-on-fail 'yarn frontend' 'yarn backend'",
+    "start": "yarn workspace backend server:prod",
     "precommit:frontend": "cd frontend && npm run precommit",
     "precommit:backend": "cd backend && npm run precommit"
   },
