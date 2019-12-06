@@ -2,12 +2,14 @@ language: node_js
 node_js:
 - 12.13.0
 before_script:
-  - yarn
+- yarn
 script:
 - yarn backend
-
 deploy:
   provider: heroku
-  api_key: b5fd08d8-b626-4ae8-83a8-22353663f339
+  api_key: API_KEY
   app: mern-zapp
   on: hackathon
+env:
+  global:
+    secure: q+PA9nYQHqgsQ5BsX5eHLDrTi9QitLJ6FjvYEf8Rh6yXMawtO2pVDhEfDnnrk30sWBapXMqIMZbsLh75/jwzeao1rQ93KIzOoaoJCZVWLOOc0UWX2pSiLoTLMBgEpLf66+j+/R7B1L3a0RlgfN7ed1OV7WVswMCks5W4MQKU4iErRM44f5WM86ZSoOJiLq0dueJh3UltH6WF8CaLatWhcgHjjH1iB3ufV7LrrYzRoXCuQBC5Zipe4K8V68qA4EpiAtsAGlXjbaI82qXx91uIIPVVpgg73yCkSwXKj+6RVTueEOjb+01LpLz3ySWoMq+5aeGzU5jVy38gC31IPyCsu2sR6hqsd4oo+DEMXaYl/LoGMVUsTZ2klHYYU5jNMfP1UikS0tscFMuR4obHFRDE0isonK9MapEbUQHCRZKjlkLmWYDU5wjYaUEHEDwslBmYAScfmCo+26AMFkSqbxxzKOQ8+LhllO/I8aId73UCn0Xe9Pl3w/uX4pDHdg3mFe51C2g0e56awNNRgRwQMT77XfAF7vwo7VMFLLTGvpLbxFo4pzK0DAUxB3gNGNs1ftPeU06uGT26V6vZ1M3JRnsf83kNBg5GQMP9XqlHO2RmPLYTNVDfAj23S4kYxtc4yuQPKE77lPtaLo+WJoO47434bxBf8SYmFjbwi/gdiKrFDtE=
