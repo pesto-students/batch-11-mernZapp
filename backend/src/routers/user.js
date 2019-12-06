@@ -1,5 +1,10 @@
-// import express from 'express';
+import express from 'express';
+import { userLogin, userCreate } from '../controllers/userController';
 
-// const router = new express.Router();
+const router = new express.Router();
 
-// router.post('/users/login', async ())
+router.post('/users/login', userLogin);
+
+router.post('/users/create', userCreate);
+
+export default router;
