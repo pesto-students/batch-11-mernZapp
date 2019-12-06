@@ -2,7 +2,8 @@ language: node_js
 node_js:
 - 12.13.0
 before_script:
-- yarn
+  - curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+  - yarn
 script:
 - yarn backend
 
