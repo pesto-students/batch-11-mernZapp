@@ -5,7 +5,7 @@ before_script:
 - yarn
 script:
 - yarn backend
-cache: yarn
+
 deploy:
   provider: heroku
   api_key: MY_SECRET_API_KEY
