@@ -36,7 +36,6 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "validator": "^12.1.0",
     "validator": "^12.1.0"
   },
   "lint-staged": {
