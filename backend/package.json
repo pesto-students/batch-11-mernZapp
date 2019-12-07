@@ -8,7 +8,7 @@
     "start": "npm run prod",
     "server": "babel-node -r ../node_modules/dotenv/config ./src/index.js dotenv_config_path=./config/dev.env",
     "server:prod": "babel-node ./src/index.js",
-    "server:startOnHeroku": "node ./src/index.js",
+    "server:startOnHeroku": "node ./dist/index.js",
     "dev": "NODE_ENV=development npm-run-all server",
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
