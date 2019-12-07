@@ -22,6 +22,8 @@ var initDb = function initDb() {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
+  }).then(function (results) {
+    console.log(results);
   });
 };
 

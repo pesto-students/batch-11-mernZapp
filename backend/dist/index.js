@@ -11,6 +11,7 @@ var _slack = _interopRequireDefault(require("./routers/slack"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
+var PORT = process.env.PORT || 5000;
 (0, _mongoose["default"])();
 app.use(_express["default"].json());
 app.use(_user["default"]);
@@ -19,6 +20,6 @@ console.log('es6 features works');
 app.get('/', function (_req, res) {
   res.send('hello world');
 });
-app.listen(3000, function () {
+app.listen(PORT, function () {
   return console.log('App listening on port 3000!');
 });
