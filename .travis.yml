@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 12.13.0
+before_script:
+- yarn
+script:
+- yarn backend
+deploy:
+  provider: heroku
+  api_key: c8d93efb-745f-4a8a-9453-14bb20199f9e
+  app: mern-zap
+  on: hackathon

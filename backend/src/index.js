@@ -4,6 +4,7 @@ import userRouter from './routers/userRouter';
 
 // TODO: remove
 // import Service from './models/serviceModel';
+import router from './routers/slack';
 
 const app = express();
 
@@ -23,5 +24,6 @@ initDb();
 
 app.use(express.json());
 app.use(userRouter);
+app.use(router);
 
 app.listen(3000, () => console.log('App listening on port 3000!'));

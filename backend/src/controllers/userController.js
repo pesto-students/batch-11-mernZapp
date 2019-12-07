@@ -7,8 +7,7 @@ const userLogin = async (req, res) => {
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (error) {
-    console.log(error);
-    // res.status(400).send('Error in loggin api', error);
+    res.status(500).send('Error in login api');
   }
 };
 
@@ -21,7 +20,6 @@ const userCreate = async (req, res) => {
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (error) {
-    console.log(error);
     res.status(400).send('Error in creating user');
   }
 };
