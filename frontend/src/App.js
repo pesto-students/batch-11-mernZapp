@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import SignIn from './containers/signIn/SignIn';
+import CreateZapp from './containers/createZapp/CreateZapp';
 
 function App() {
   return (
     <div>
-      <SignIn />
+      <CreateZapp />
     </div>
   );
 }
