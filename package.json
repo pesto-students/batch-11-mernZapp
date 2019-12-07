@@ -12,7 +12,7 @@
   "scripts": {
     "frontend": "yarn workspace frontend start",
     "backend": "yarn workspace backend build",
-    "start": "yarn workspace backend server:prod",
+    "start": "yarn workspace backend server:startOnHeroku",
     "precommit:frontend": "cd frontend && npm run precommit",
     "precommit:backend": "cd backend && npm run precommit"
   },
