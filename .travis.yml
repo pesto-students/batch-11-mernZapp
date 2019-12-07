@@ -7,6 +7,6 @@ script:
 - yarn backend
 deploy:
   provider: heroku
-  api_key: b5fd08d8-b626-4ae8-83a8-22353663f339
-  app: mern-zapp
+  api_key: c8d93efb-745f-4a8a-9453-14bb20199f9e
+  app: mern-zap
   on: hackathon
