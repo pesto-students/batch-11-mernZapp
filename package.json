@@ -11,13 +11,14 @@
   ],
   "scripts": {
     "frontend": "yarn workspace frontend start",
-    "backend": "yarn workspace backend start",
-    "start": "concurrently --kill-others-on-fail 'yarn frontend' 'yarn backend'",
+    "backend": "yarn workspace backend build",
+    "start": "yarn workspace backend server:startOnHeroku",
     "precommit:frontend": "cd frontend && npm run precommit",
     "precommit:backend": "cd backend && npm run precommit"
   },
   "dependencies": {
-    "concurrently": "^5.0.0"
+    "concurrently": "^5.0.0",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "eslint": "*",
