@@ -2,16 +2,11 @@ language: node_js
 node_js:
 - 12.13.0
 before_script:
-  - curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-  - yarn
+- yarn
 script:
 - yarn backend
-
 deploy:
   provider: heroku
-  api_key: MY_SECRET_API_KEY
-  app: mern-zapp
+  api_key: c8d93efb-745f-4a8a-9453-14bb20199f9e
+  app: mern-zap
   on: hackathon
-env:
-  global:
-    secure: ZcbnjbKF/N1z5OHtlvVoOnLJy+fUnCWG1hESmiZ1hsYkMu6eqkTKboNlK77rWOwIJRJBrA41V1kRqHT+MOQ8uqr2iQFrrnp2QJ9q4KOPej5TsNTOaD1PhCzgX6uuDzWeyCY+vxKG7Vrr7S4YM8WGClcPdbB9eGExtzhLlhAI8m24W+4P3LTmfszCSiwk2VaG8Yk0H3ofpgkFaiUmDcHRvXTnUdp09bFluo9Yc9psTwxRHRxeHhWUSP6e7jB/sMG3HQUzrWoDXkxiHy78KvPMj14IBSu435kpHH6gq6rgeXxbmKl0PY4qe0ItOgoPNeDohHbD31DO/h8jY0U8BIe2G8M1L/x0zKfDX4iXM8cz2uTfpeYvz9nn3rW2IaS5KQB8lwX3Sl48nQSJbZjKtxRIdZ6rjIJMrLD24Hz4mUQ732gmwjbw5CVlGhyId47yHhZL3x1+K7cZVkOeybXiommQoZUZVCUyoMTwTn/ZS6KO+MyPObFwErFVi3DF4ehIdgoXqa5HOkcAQprLUtEm6laMJFolsPQrcmrHTatyxFERW4PRttDzp8LZ9mHGIvvIbU1empT0LbxWBxj4i+hbmHx00w6EFfVqarG7FhCPB4Dsz38ksgNlme5O/KLGxz5x+m3QbtuZi06V8FQt8/3PGDDmwu/IzRjvV2jtB2ah/bc1ZuI=

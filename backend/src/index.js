@@ -4,6 +4,7 @@ import userRouter from './routers/user';
 import router from './routers/slack';
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 initDb();
 
@@ -16,4 +17,4 @@ app.get('/', (_req, res) => {
   res.send('hello world');
 });
 
-app.listen(3000, () => console.log('App listening on port 3000!'));
+app.listen(PORT, () => console.log('App listening on port 3000!'));
