@@ -3,6 +3,6 @@ import { slackHandler } from '../controllers/slack_util';
 
 const router = new express.Router();
 
-router.get('/slack/handle', slackHandler);
+router.post('/slack/handle', slackHandler);
 
 export default router;
