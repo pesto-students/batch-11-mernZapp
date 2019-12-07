@@ -60,4 +60,9 @@ app.use(express.json());
 app.use(userRouter);
 app.use(router);
 
-app.listen(3000, () => console.log('App listening on port 3000!'));
+console.log('es6 features works');
+app.get('/', (_req, res) => {
+  res.send('hello world');
+});
+
+app.listen(3000, () => console.log('App listening on port 5000!'));
