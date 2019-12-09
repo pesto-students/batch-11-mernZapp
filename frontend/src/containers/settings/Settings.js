@@ -1,6 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 import Container from '@material-ui/core/Container';
 
@@ -8,6 +7,7 @@ import { ZappDivider } from '../../components/Divider';
 import { Subheadings } from '../../components/Subheading';
 import Switches from '../../components/Switches';
 import { ZappButton } from '../../components/StyledButton';
+import { TypographyComponent } from '../../components/Typography';
 import {
   Wrapper,
 } from '../../components/FormCss';
@@ -55,9 +55,7 @@ const Settings = () => (
   <Container component="main">
     <CssBaseline />
     <Wrapper direction="column">
-      <Typography component="h1" variant="h5">
-      Settings
-      </Typography>
+      <TypographyComponent component="h1" variant="h5" text="Settings" />
       <ZappDivider />
       <ItemContainer>
         <Subheadings float="left" text="Email:" />
@@ -66,45 +64,28 @@ const Settings = () => (
             <ZappButton color="secondary" margin="0" text="Change Password" />
           </ChangePassword>
           <ItemName>
-            <Typography>
-            Primary Email:
-            </Typography>
-            <Typography>
-            dummy-longest-mail@gmail.com
-            </Typography>
+            <TypographyComponent text="Primary Email:" />
+            <TypographyComponent text="dummy-longest-mail@gmail.com" />
             <ZappButton color="secondary" variant="contained" margin="0" text="Change" />
           </ItemName>
         </ItemDetails>
       </ItemContainer>
-
       <ZappDivider />
       <ItemContainer>
         <Subheadings float="left" text="Accounts" />
         <ItemName>
-          <Typography>
-          Slack:
-          </Typography>
-          <Typography>
-          slack-longest-mail@gmail.com
-          </Typography>
+          <TypographyComponent text="Slack:" />
+          <TypographyComponent text="slack-longest-mail@gmail.com" />
           <ZappButton color="secondary" variant="contained" margin="0" text="Change" />
         </ItemName>
         <ItemName>
-          <Typography>
-            Slack:
-          </Typography>
-          <Typography>
-          slack-longest-mail@gmail.com
-          </Typography>
+          <TypographyComponent text="Slack:" />
+          <TypographyComponent text="slack-longest-mail@gmail.com" />
           <ZappButton color="secondary" variant="contained" margin="0" text="Change" />
         </ItemName>
         <ItemName>
-          <Typography>
-            Slack:
-          </Typography>
-          <Typography>
-          slack-longest-mail@gmail.com
-          </Typography>
+          <TypographyComponent text="Slack:" />
+          <TypographyComponent text="slack-longest-mail@gmail.com" />
           <ZappButton color="secondary" variant="contained" margin="0" text="Change" />
         </ItemName>
       </ItemContainer>
@@ -112,9 +93,7 @@ const Settings = () => (
       <ItemContainer>
         <Subheadings float="left" text="Notifications" />
         <ItemName>
-          <Typography>
-          Send notification on failed Zapp?
-          </Typography>
+          <TypographyComponent text="Send notification on failed Zapp?" />
           <Switches />
         </ItemName>
       </ItemContainer>
