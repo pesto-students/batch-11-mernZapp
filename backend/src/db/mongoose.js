@@ -21,6 +21,8 @@ const initDb = () => {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
+  }).then(results => {
+    console.log(results);
   });
 };
 
