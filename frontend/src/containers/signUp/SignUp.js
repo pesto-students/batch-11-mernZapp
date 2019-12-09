@@ -24,6 +24,7 @@ export default function SignUp() {
             id="username"
             label="Username"
             name="username"
+            type="text"
             autoComplete="username"
           />
           <ZappTextField
