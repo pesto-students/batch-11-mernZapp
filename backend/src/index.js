@@ -38,7 +38,7 @@ initDb();
 //   }, (error, response, body) => {
 //     console.error('error:', error); // Print the error if one occurred
 //     console.log('statusCode:', response && response.statusCode);
-// Print the response status code if a response was received
+//     // Print the response status code if a response was received
 //     console.log('body:', body);
 //   });
 // };
@@ -65,4 +65,4 @@ app.get('/', (_req, res) => {
   res.send('hello world');
 });
 
-app.listen(3000, () => console.log('App listening on port 5000!'));
+app.listen(3000, () => console.log('App listening on port 3000!'));
