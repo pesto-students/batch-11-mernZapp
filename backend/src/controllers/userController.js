@@ -36,6 +36,7 @@ const logoutUser = async (req, res) => {
   }
 };
 
+
 export {
   userLogin,
   userCreate,

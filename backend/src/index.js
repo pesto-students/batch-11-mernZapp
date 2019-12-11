@@ -6,6 +6,7 @@ import userRouter from './routers/userRouter';
 // TODO: remove
 // import Service from './models/serviceModel';
 import router from './routers/slack';
+// import Activity from './models/activityModel';
 
 const app = express();
 
@@ -44,7 +45,7 @@ initDb();
 // };
 // initGithubHook();
 
-// Put dummy data.c
+// Put dummy data for github.
 // const putDummyData = () => {
 //   const service = new Service({ name: 'github' });
 //   try {
@@ -55,6 +56,12 @@ initDb();
 // };
 // putDummyData();
 
+// put one trigger for git hub
+// const putDummyTrigger = async () => {
+//   const service = await Service.findByName('github');
+//   const activity = new Activity({
+//   });
+// }
 
 app.use(express.json());
 app.use(userRouter);

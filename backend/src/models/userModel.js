@@ -31,6 +31,16 @@ const userSchema = new mongoose.Schema({
       required: true,
     },
   }],
+
+  services: [
+    {
+      name: 'github',
+      oAuthToken: {
+        type: String,
+        unique: true,
+      },
+    },
+  ],
 }, {
   timestamps: true,
 });

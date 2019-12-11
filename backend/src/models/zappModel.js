@@ -6,18 +6,25 @@ const zappModel = mongoose.Schema({
     ref: 'User',
   },
   trigger: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'ActivityInstance',
+    name: {
+      type: String,
+      required: true,
+    },
   },
   action: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'ActivityInstance',
+    name: {
+      type: String,
+      required: true,
+    },
   },
   name: {
     type: String,
   },
   status: {
     type: Boolean,
+  },
+  dataOut: {
+    type: Object,
   },
 });
 
