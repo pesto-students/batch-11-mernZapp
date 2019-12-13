@@ -1,9 +1,13 @@
+import mongoose from 'mongoose';
 import request from 'supertest';
 import app from '../index';
 import { GITHUB_TEST_AUTH_TOKEN } from '../config';
 
 describe('test the zapp workflow APIs', () => {
   let authToken;
+  afterAll(async () => {
+    mongoose.disconnect();
+  });
   beforeAll(async () => {
     const res = await request(app)
       .post('/users/create')
