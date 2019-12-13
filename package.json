@@ -17,7 +17,7 @@
     "test:backend": "yarn workspace backend test",
     "test": "concurrently 'yarn test:frontend' 'yarn test:backend'",
     "frontend:build": "yarn workspace frontend build",
-    "start:backend": "cd backend && yarn start",
+    "start": "cd backend && yarn start",
     "precommit:frontend": "cd frontend && npm run precommit",
     "precommit:backend": "cd backend && npm run precommit"
   },

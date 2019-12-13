@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import request from 'supertest';
 import app from '../index';
 import { GITHUB_TEST_AUTH_TOKEN } from '../config';
