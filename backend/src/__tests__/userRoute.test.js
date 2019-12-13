@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from '../index';
+import { GITHUB_TEST_AUTH_TOKEN } from '../config';
 
 describe('User authentication flow', () => {
   it('should create a new user', async () => {
@@ -65,5 +66,32 @@ describe('User authentication flow', () => {
     // delete that user
     afterEach(async () => {
     });
+  });
+});
+
+describe('User authentication flow', () => {
+  it('should create a new user', async () => {
+    const res = await request(app)
+      .post('/users/create')
+      .send({
+        email: 'demo1@gmail.com',
+        password: 'harish',
+      });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('user');
+    const { token } = res.body;
+
+    const resAddAuthToken = await request(app)
+      .post('/user/add-token')
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        service: 'github',
+        token: GITHUB_TEST_AUTH_TOKEN,
+      });
+    expect(resAddAuthToken.statusCode).toEqual(200);
+
+    const resDelete = await request(app)
+      .delete('/users/me').set('Authorization', `Bearer ${token}`);
+    expect(resDelete.statusCode).toEqual(200);
   });
 });

@@ -6,6 +6,7 @@ const userLogin = async (req, res) => {
     const token = await user.generateAuthToken();
     res.send({ user, token });
   } catch (error) {
+    console.log(error);
     res.status(500).send('Error in login api');
   }
 };
@@ -28,6 +29,7 @@ const logoutUser = async (req, res) => {
     await req.user.save();
     res.send();
   } catch (error) {
+    console.log(error);
     res.status(500).send();
   }
 };
@@ -42,9 +44,21 @@ const deleteUser = (req, res) => {
   }
 };
 
+const addToken = async (req, res) => {
+  try {
+    const { service, token } = req.body;
+    await req.user.saveServiceToken(service, token);
+    res.send(req.user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+};
+
 export {
   userLogin,
   userCreate,
   logoutUser,
   deleteUser,
+  addToken,
 };

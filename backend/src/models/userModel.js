@@ -28,6 +28,19 @@ const userSchema = new mongoose.Schema({
       required: true,
     },
   }],
+  services: [
+    {
+      name: {
+        type: String,
+        lowercase: true,
+        trim: true,
+        enum: ['github'],
+      },
+      oAuthToken: {
+        type: String,
+      },
+    },
+  ],
 }, {
   timestamps: true,
 });
@@ -81,6 +94,24 @@ userSchema.methods.generateAuthToken = async function generateAuthToken() {
   });
   await user.save();
   return token;
+};
+
+userSchema.methods.saveServiceToken = async function saveServiceToken(service, token) {
+  const user = this;
+  const services = user.services.filter(serviceInternal => service === serviceInternal.name);
+
+  if (services.length > 0) {
+    services[0].token = token;
+  } else {
+    services.push({
+      name: service,
+      oAuthToken: token,
+    });
+  }
+
+  user.services = services;
+  await user.save();
+  return user.services;
 };
 
 const User = mongoose.model('User', userSchema);
