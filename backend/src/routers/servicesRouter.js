@@ -3,7 +3,7 @@ import {
   getServices,
   getActionsForService,
   getTriggerForService,
-} from '../controllers/serviceControllers';
+} from '../controllers/servicesController';
 
 const router = new express.Router();
 

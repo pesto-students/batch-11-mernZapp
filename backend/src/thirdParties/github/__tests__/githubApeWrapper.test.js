@@ -24,7 +24,6 @@ describe('test all the github apis', () => {
         },
       },
     };
-
     const { statusCode, body } = await createGist({
       token: GITHUB_TEST_AUTH_TOKEN,
       requestData,
