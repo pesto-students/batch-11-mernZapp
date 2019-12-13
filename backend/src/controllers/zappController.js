@@ -1,4 +1,5 @@
 import Zapp from '../models/zappModel';
+import { createWebHook, deleteWebHook } from './thirdPartiesController';
 
 const createZapp = async (req, res) => {
   const { action } = req.body;
@@ -27,7 +28,24 @@ const createZapp = async (req, res) => {
     owner: req.user._id,
     active: false,
   });
+
+  const token = await req.user.getServiceToken(zapp.trigger.serviceName);
+
   try {
+    // TODO: make it async, but as thee
+    const webhookResponse = await createWebHook({
+      service: zapp.trigger.serviceName,
+      name: zapp.trigger.name,
+      token,
+      zapp,
+    });
+    zapp.trigger.webhookResponse = webhookResponse;
+  } catch (error) {
+    console.log('error creating webhook', error);
+  }
+
+  try {
+    // activate the zapp,
     await zapp.save();
     res.status(200).send(zapp);
   } catch (error) {
@@ -39,6 +57,14 @@ const createZapp = async (req, res) => {
 const deleteZapp = async (req, res) => {
   try {
     const zapp = await Zapp.findOneAndDelete({ _id: req.params.zapid, owner: req.user._id });
+
+    // delete the hook also
+    const token = await req.user.getServiceToken(zapp.trigger.serviceName);
+    await deleteWebHook({
+      service: zapp.trigger.serviceName,
+      token,
+      zapp,
+    });
     if (!zapp) {
       return res.status(404).send('zapp not found');
     }
@@ -49,6 +75,7 @@ const deleteZapp = async (req, res) => {
     return error;
   }
 };
+
 
 export {
   createZapp,

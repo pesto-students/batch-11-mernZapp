@@ -1,5 +1,6 @@
 import request from 'supertest';
 import app from '../index';
+import { GITHUB_TEST_AUTH_TOKEN } from '../config';
 
 describe('test the zapp workflow APIs', () => {
   let authToken;
@@ -10,8 +11,17 @@ describe('test the zapp workflow APIs', () => {
         email: 'demo5@gmail.com',
         password: 'harish',
       });
+
     const { token } = res.body;
     authToken = token;
+
+    await request(app)
+      .post('/user/add-token')
+      .set('Authorization', `Bearer ${authToken}`)
+      .send({
+        service: 'github',
+        token: GITHUB_TEST_AUTH_TOKEN,
+      });
   });
 
   it('should create a new zapp', async () => {
@@ -32,15 +42,11 @@ describe('test the zapp workflow APIs', () => {
           },
         },
         actionRequestBody: {
-          description: 'Hello World Examples',
-          public: true,
-          files: {
-            hello_world_python: {
-              content: 'Run `python hello_world.py` to print Hello World',
-            },
-          },
+          description: 'demo description',
+          title: 'demoTitle',
         },
       });
+
     expect(res.statusCode).toEqual(200);
     const zapId = res.body._id;
 

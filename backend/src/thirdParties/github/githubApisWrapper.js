@@ -44,6 +44,7 @@ const createHook = ({
 
 const getListOfRepository = ({ token, username }) => {
   const url = GET_REPOSITORIES_FOR_USER.replace(':username', username);
+
   return request({
     url,
     method: 'GET',

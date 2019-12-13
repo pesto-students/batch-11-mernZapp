@@ -43,6 +43,9 @@ const userSchema = new mongoose.Schema({
       oAuthToken: {
         type: String,
       },
+      username: {
+        type: String,
+      },
     },
   ],
 }, {
@@ -116,6 +119,16 @@ userSchema.methods.saveServiceToken = async function saveServiceToken(service, t
   user.services = services;
   await user.save();
   return user.services;
+};
+
+userSchema.methods.getServiceToken = async function getServiceToken(service) {
+  const user = this;
+  const services = user.services.filter(serviceInternal => service === serviceInternal.name);
+
+  if (services.length > 0) {
+    return services[0].oAuthToken;
+  }
+  return '';
 };
 
 const User = mongoose.model('User', userSchema);
