@@ -63,9 +63,6 @@ describe('User authentication flow', () => {
     const resDelete = await request(app)
       .delete('/users/me').set('Authorization', `Bearer ${tokenLogin2}`);
     expect(resDelete.statusCode).toEqual(200);
-    // delete that user
-    afterEach(async () => {
-    });
   });
 });
 

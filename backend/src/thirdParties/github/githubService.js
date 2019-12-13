@@ -172,7 +172,7 @@ const service = {
   actions: [
     {
       name: 'create_gist',
-      required: [
+      fields: [
         {
           name: 'files',
           type: 'object',
