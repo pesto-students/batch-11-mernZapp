@@ -21,6 +21,12 @@ const zappSchema = new mongoose.Schema({
     name: {
       type: String,
     },
+    data: {
+      type: {},
+    },
+    webhookResponse: {
+      type: {},
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
