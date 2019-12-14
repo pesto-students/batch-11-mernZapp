@@ -1,7 +1,10 @@
 import express from 'express';
+import githubappRouter from './routers/githubapp-router';
 
 const app = express();
-console.log('es6 features works');
+
+app.use(githubappRouter);
+
 app.get('/', (_req, res) => {
   res.send('hello world');
 });
