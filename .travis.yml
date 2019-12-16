@@ -7,6 +7,14 @@ before_script:
   - yarn
 
 script:
+  - yarn start:backend
   - yarn test
 
 cache: yarn
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "CVyLbCE9/Cdj4Uv0Wk/hpfLlgg+6gE0htCXE/msEBStesIQIxbV2gbQynFDRe/kIz0NnHoYkCyuLzvGW7QMlbDY6WrnOmCQRPl/ZeXDsPjQ6MOD+fHkteUvZGMpRKrxwpRuJKCw+8QZTGM5SM0At0SB42hQlHkowm6PqGVoRBRpSuzp6kQe8+UCbhkUY8R9MgGG2oV1BcbwRLJtfZ0RHZ92hE9vDROp4e6+CVJJKQUlSHX1MRJd/XldC9VdYO7Nom5zN9cJRzHznH0u4AhQqMsna+XxSqMKvMsUmTeX0PArYXnbewSdCqeN2x4vbGkDDWXoOJxsiZgCFb1BUi1tI3/BMyhxhbx5II2L/WDxu93ogW15anmS7FBnqaUwZZ1EevBU/B1C6kDAz7dv7yMyuQXaq/07Sc0Rbmjw7EeyaVIWi1Dh3KM6SZrvrJ6wprNmpNP1Extoqw0iFOz5ViMS2LlO8ooqWBWvViX+ecD+SNBBRG5hfiJvqoLQJxj5AmDJm4HeRGkhBTW8sO8+h+IfMETakGmrm+qFxgviNqxam15uNt96yDmXSJuMe7qXq1TwDg7qrUIBIj61CdEwgkc9cCBAj92rMDSfdTH+9girdFxq6UNs+XNEdtklMwsH5pYNMiKpAjnezC+wsO0GBF+q+pMkJ6ZShU1GoxOdOjy/ZRf4="
+  app: mern-zap
+  on: master
