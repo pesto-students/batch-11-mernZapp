@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
+import { BASE_URL } from '../utils/env';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -17,11 +18,10 @@ export const loadUser = () => async (dispatch) => {
     // eslint-disable-next-line no-undef
     setAuthToken(localStorage.token);
   }
-  const baseUrl = 'http://localhost:3000';
   const loginApi = '/users/login';
 
   try {
-    const res = await axios.get(`${baseUrl}${loginApi}`);
+    const res = await axios.get(`${BASE_URL}${loginApi}`);
 
     dispatch({
       type: USER_LOADED,
@@ -43,10 +43,9 @@ export const register = ({ username, email, password }) => async (dispatch) => {
   };
 
   const body = JSON.stringify({ username, email, password });
-  const baseUrl = 'http://localhost:3000';
-  const loginApi = '/users/create';
+  const registerApi = '/users/create';
   try {
-    const res = await axios.post(`${baseUrl}${loginApi}`, body, config);
+    const res = await axios.post(`${BASE_URL}${registerApi}`, body, config);
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data,

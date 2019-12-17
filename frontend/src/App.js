@@ -4,11 +4,12 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Landing from './containers/dashboard/Dashboard';
+import Login from './containers/signIn/SignIn';
 import Routes from './routing/Routes';
 import Alert from './components/Alert';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+import Dashboard from './containers/dashboard/Dashboard';
 
 import './App.css';
 
@@ -27,7 +28,7 @@ const App = () => {
         <>
           <Alert />
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Dashboard} />
             <Route component={Routes} />
           </Switch>
         </>
