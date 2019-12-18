@@ -1,28 +1,21 @@
-import styled from 'styled-components';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import './form.css';
 
-const StyledButton = styled(Button)`
-  margin: ${(props) => props.margin || '24px 0px 16px'};
-  color: ${(props) => props.color || 'primary'}
-`;
+const StyledButton = () => {
+  return (
+    <Button className="styledButton" variant="contained" color="primary">Sign In</Button>
+  );
+};
 
-const GridSpaced = styled(Grid)`
-  margin-top: 10px;
-`;
+const GridSpaced = () => {
+  return (
+    <Grid className="GridSpaced" />
+  );
+};
 
-const Wrapper = styled.div`
-  margin-top: 64px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Form = styled.form`
-  width: 100%;
-  margintop: 64px;
-`;
 
 export {
-  Wrapper, Form, StyledButton, GridSpaced,
+  StyledButton, GridSpaced,
 };

@@ -1,0 +1,21 @@
+.styledButton {
+    margin: 24px 0px 16px;
+}
+
+
+
+.gridSpaced{
+  margin-top: 10px;
+}
+
+.Wrapper{
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  margin-top: 64px;
+}

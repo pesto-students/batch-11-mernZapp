@@ -68,8 +68,8 @@ export default function ZappTabs() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.header}>
         <Tabs value={value} onChange={handleChange} variant="fullWidth" aria-label="simple tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="My Zapps" {...a11yProps(0)} />
+          <Tab label="Zapp Logs" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

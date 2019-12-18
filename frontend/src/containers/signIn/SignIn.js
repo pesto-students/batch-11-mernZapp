@@ -6,14 +6,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import '../../App.css';
 
 import { login } from '../../actions/auth';
-import {
-  Wrapper,
-  Form,
-  StyledButton,
-  GridSpaced,
-} from '../../components/FormCss';
+// import {
+//   Wrapper,
+//   Form,
+// } from '../../components/FormCss';
 import ZappTextField from '../../components/TextField';
 
 // eslint-disable-next-line no-shadow
@@ -39,11 +39,11 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Wrapper>
+      <div className="wrapper">
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Form>
+        <form className="form">
           <ZappTextField
             id="email"
             type="text"
@@ -60,7 +60,7 @@ const Login = ({ login, isAuthenticated }) => {
             autoComplete="password"
             handleChange={handleChange}
           />
-          <StyledButton
+          <Button
             type="button"
             fullWidth
             variant="contained"
@@ -68,8 +68,8 @@ const Login = ({ login, isAuthenticated }) => {
             onClick={onSubmit}
           >
             Sign In
-          </StyledButton>
-          <GridSpaced container>
+          </Button>
+          <Grid container className="gridSpaced">
             <Grid item xs>
               <Link to="/forgotpassword"> Forgot password? </Link>
             </Grid>
@@ -78,9 +78,9 @@ const Login = ({ login, isAuthenticated }) => {
                 Don&apos;t have an account? Sign Up
               </Link>
             </Grid>
-          </GridSpaced>
-        </Form>
-      </Wrapper>
+          </Grid>
+        </form>
+      </div>
     </Container>
   );
 };

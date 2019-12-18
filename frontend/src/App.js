@@ -19,7 +19,7 @@ if (localStorage.token) {
 
 const App = () => {
   useEffect(() => {
-    store.dispatch(loadUser());
+    // store.dispatch(loadUser());
   }, []);
 
   return (
@@ -28,7 +28,7 @@ const App = () => {
         <>
           <Alert />
           <Switch>
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Login} />
             <Route component={Routes} />
           </Switch>
         </>

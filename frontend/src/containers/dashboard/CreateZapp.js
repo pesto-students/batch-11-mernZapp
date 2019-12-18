@@ -8,23 +8,18 @@ import Container from '@material-ui/core/Container';
 // import AddCircleIcon from '@material-ui/icons';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import PropTypes from 'prop-types';
+import './zapp.css';
 
-const Wrapper = styled.div`
-  position: absolute;
-  right: 53px;
-  display: flex;
-  jusdtify-content: center;
-  align-items: center;
-`;
+
 const CreateZapp = () => (
   <Container component="main" maxWidth="xs">
     <CssBaseline />
-    <Wrapper>
+    <div className="createZapp">
       <Typography component="h1" variant="h4">
           Create New Zapp
       </Typography>
       <AddCircleIcon />
-    </Wrapper>
+    </div>
   </Container>
 );
 

@@ -2,42 +2,37 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-// import Container from '@material-ui/core/Container';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ZappTabs from './Tabs';
 import CreateZapp from './CreateZapp';
-// import {
-//   Wrapper,
-// } from '../../components/FormCss';
+import './zapp.css';
 
-const Wrapper = styled.div`
-  margin-top: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Container = styled.div`
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
 
-const Dashboard = ({ isAuthenticated }) => (
-  <Container component="main" maxWidth="xs">
-    <CreateZapp />
-    <Wrapper>
-      <ZappTabs />
-    </Wrapper>
-  </Container>
-);
+const Dashboard = ({ auth: { user } }) => {
+  if (user === null) {
+    return <Redirect to="/login" />;
+  }
+  console.log(user);
+  return (
+    <div className="zappContainer">
+      <CreateZapp />
+      <div className="dashboardwrapper">
+        <ZappTabs />
+      </div>
+    </div>
+  );
+};
+
 
 Dashboard.propTypes = {
-  isAuthenticated: PropTypes.bool,
+  auth: PropTypes.object.isRequired,
 };
-Dashboard.defaultProps = {
-  isAuthenticated: null,
-};
-export default Dashboard;
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(
+  mapStateToProps,
+)(Dashboard);
