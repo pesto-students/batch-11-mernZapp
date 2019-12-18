@@ -104,7 +104,7 @@ userSchema.methods.saveServiceToken = async function saveServiceToken(service, t
   const services = user.services.filter(serviceInternal => service === serviceInternal.name);
 
   if (services.length > 0) {
-    services[0].token = token;
+    services[0].oAuthToken = token;
   } else {
     services.push({
       name: service,

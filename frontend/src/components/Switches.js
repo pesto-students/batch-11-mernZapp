@@ -6,7 +6,7 @@ export default function Switches() {
     checked: true,
   });
 
-  const handleChange = (name) => (event) => {
+  const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked });
   };
   return (
