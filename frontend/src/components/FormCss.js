@@ -3,17 +3,13 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import './form.css';
 
-const StyledButton = () => {
-  return (
-    <Button className="styledButton" variant="contained" color="primary">Sign In</Button>
-  );
-};
+const StyledButton = () => (
+  <Button className="styledButton" variant="contained" color="primary">Sign In</Button>
+);
 
-const GridSpaced = () => {
-  return (
-    <Grid className="GridSpaced" />
-  );
-};
+const GridSpaced = () => (
+  <Grid className="GridSpaced" />
+);
 
 
 export {
