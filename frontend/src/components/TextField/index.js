@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const ZappTextField = (props) => {
   const {
-    id, label, name, autoComplete, type,
+    id, label, name, autoComplete, type, handleChange,
   } = props;
   return (
     <TextField
@@ -19,6 +19,7 @@ const ZappTextField = (props) => {
       name={name}
       autoComplete={autoComplete}
       type={type}
+      onChange={handleChange}
     />
   );
 };
@@ -28,6 +29,7 @@ ZappTextField.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   autoComplete: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default ZappTextField;
