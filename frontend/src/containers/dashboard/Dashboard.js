@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ZappTabs from './Tabs';
@@ -13,7 +11,6 @@ const Dashboard = ({ auth: { user } }) => {
   if (user === null) {
     return <Redirect to="/login" />;
   }
-  console.log(user);
   return (
     <div className="zappContainer">
       <CreateZapp />
@@ -26,10 +23,11 @@ const Dashboard = ({ auth: { user } }) => {
 
 
 Dashboard.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 

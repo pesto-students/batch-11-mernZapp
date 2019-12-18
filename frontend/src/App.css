@@ -20,12 +20,9 @@ width: 100%;
 margin-top: 64px;
 }
 .alert {
-  /* padding: 4em; */
-  /* background: papayawhip; */
   text-align: center;
 }
 .alert-msg {
-  /* padding: 4em; */
   background: papayawhip;
   text-align: center;
 }

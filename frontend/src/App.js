@@ -9,18 +9,16 @@ import Routes from './routing/Routes';
 import Alert from './components/Alert';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
-import Dashboard from './containers/dashboard/Dashboard';
 
 import './App.css';
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
 const App = () => {
   useEffect(() => {
-    // store.dispatch(loadUser());
+    store.dispatch(loadUser());
   }, []);
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
 
   return (
     <Provider store={store}>

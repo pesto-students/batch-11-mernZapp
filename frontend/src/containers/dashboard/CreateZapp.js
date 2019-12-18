@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-// import AddCircleIcon from '@material-ui/icons';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import PropTypes from 'prop-types';
 import './zapp.css';

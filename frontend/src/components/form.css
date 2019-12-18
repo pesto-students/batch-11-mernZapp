@@ -1,14 +1,12 @@
 .styledButton {
-    margin: 24px 0px 16px;
+  margin: 24px 0px 16px;
 }
 
-
-
-.gridSpaced{
+.gridSpaced {
   margin-top: 10px;
 }
 
-.Wrapper{
+.Wrapper {
   margin-top: 64px;
   display: flex;
   flex-direction: column;

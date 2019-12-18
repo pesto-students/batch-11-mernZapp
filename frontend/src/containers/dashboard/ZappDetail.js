@@ -10,47 +10,6 @@ import { TypographyComponent } from '../../components/Typography';
 import '../../App.css';
 import './zapp.css';
 
-// const ItemContainer = styled.div`
-//   position: relative;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   margin-bottom: 1rem;
-// `;
-
-// const ItemDetails = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-
-// const ItemName = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   width: 100%;
-//   align-items: center;
-//   padding: .5rem;
-//   @media (max-width: 768px) {
-//     width: 100%;
-//     font-size: 0.8rem;
-//     && p {
-//       font-size: .8rem;
-//     }
-//   }
-// `;
-
-// const ZaapName = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   left: 0;
-//   width: auto;
-//   right: 0;
-//   top: 5px;
-//   position: absolute;
-//   @media (max-width: 768px) {
-//     display: none;
-// `;
 
 const ZappDetail = () => (
   <Container component="main">

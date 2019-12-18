@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { register } from '../../actions/auth';
 import ZappTextField from '../../components/TextField';
+import { setAlert } from '../../actions/alert';
+
 
 // eslint-disable-next-line no-shadow
 const Register = ({ register, isAuthenticated }) => {
@@ -19,8 +21,12 @@ const Register = ({ register, isAuthenticated }) => {
     password2: '',
   });
 
-  // eslint-disable-next-line object-curly-newline
-  const { username, email, password, password2 } = formData;
+  const {
+    username,
+    email,
+    password,
+    password2,
+  } = formData;
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -28,9 +34,8 @@ const Register = ({ register, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      // setAlert('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
     } else {
-      // console.log(formData);
       register({ username, email, password });
     }
   };

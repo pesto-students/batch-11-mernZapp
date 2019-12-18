@@ -16,7 +16,7 @@ app.use(zappRouter);
 initDb().then(() => {
   if (NODE_ENV !== 'test') {
     app.listen(DEV_NODE_SERVER_PORT, () => {
-      console.log('App listening on port 3000!');
+      console.log(`App listening on port ${DEV_NODE_SERVER_PORT}!`);
     });
   }
 }).catch(error => {
