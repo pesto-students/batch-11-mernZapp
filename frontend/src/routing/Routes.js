@@ -5,6 +5,7 @@ import Login from '../containers/signIn/SignIn';
 import Dashboard from '../containers/dashboard/Dashboard';
 import GithubOAuth from '../containers/githubOAuth';
 import GithubOAuthPage from '../containers/githubOAuth/githubOauthPage';
+import CreateZapp from '../containers/createzapp/CreateZapp';
 
 const Routes = () => (
   <>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/ghsignin" component={GithubOAuth} />
       <Route exact path="/ghtoken" component={GithubOAuthPage} />
+      <Route exact path="/createzapp" component={CreateZapp} />
     </Switch>
   </>
 );
