@@ -23,7 +23,6 @@ const ActionSelect = (props) => {
   const [activity, setValue] = React.useState('');
   const { type, values, onchange } = props;
   const optionsValues = values;
-  console.log(props);
   const handleChange = async (event) => {
     setValue(event.target.value);
     onchange(event.target.value);
