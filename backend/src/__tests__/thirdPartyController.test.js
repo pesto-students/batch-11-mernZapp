@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import request from 'supertest';
 import app from '../index';
 import { GITHUB_TEST_AUTH_TOKEN } from '../config';
+// import { handleGithubWebhookEvent } from '../controllers/thirdPartiesController';
 
 describe('test the zapp workflow APIs', () => {
   let authToken;
@@ -46,8 +47,13 @@ describe('test the zapp workflow APIs', () => {
           },
         },
         actionRequestBody: {
-          description: 'demo description',
-          title: 'demoTitle',
+          description: 'Hello World Examples',
+          public: true,
+          files: {
+            file_test: {
+              content: 'Hello from zapier clone',
+            },
+          },
         },
       });
 
