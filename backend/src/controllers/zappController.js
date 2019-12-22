@@ -1,4 +1,5 @@
 import Zapp from '../models/zappModel';
+import ZappLog from '../models/zappLogModel';
 import { createWebHook, deleteWebHook } from './thirdPartiesController';
 
 const createZapp = async (req, res) => {
@@ -75,8 +76,21 @@ const deleteZapp = async (req, res) => {
   }
 };
 
+const zappLogs = async (req, res) => {
+  const { user } = req.user;
+  try {
+    const zappLogList = await ZappLog.find({ owner: user._id }, 'zapp zappName success createdAt');
+    return res.status(200).send(zappLogList);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+    return error;
+  }
+};
+
 
 export {
   createZapp,
   deleteZapp,
+  zappLogs,
 };
