@@ -12,10 +12,8 @@ import {
 import setAuthToken from '../utils/setAuthToken';
 
 
-export const loadUser = () => async (dispatch) => {
-  // eslint-disable-next-line no-undef
+export const loadUser = () => async dispatch => {
   if (localStorage.token) {
-    // eslint-disable-next-line no-undef
     setAuthToken(localStorage.token);
   }
   const loginApi = '/users/login';
@@ -35,7 +33,7 @@ export const loadUser = () => async (dispatch) => {
 };
 
 
-export const register = ({ username, email, password }) => async (dispatch) => {
+export const register = ({ username, email, password }) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -62,7 +60,7 @@ export const register = ({ username, email, password }) => async (dispatch) => {
 };
 
 // Login User
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async dispatch => {
   const config = {
     headers: {
       'Content-Type': 'application/json',

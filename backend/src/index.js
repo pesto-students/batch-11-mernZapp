@@ -3,6 +3,7 @@ import initDb from './db/mongoose';
 import userRouter from './routers/userRouter';
 import servicesRouter from './routers/servicesRouter';
 import zappRouter from './routers/zappRouter';
+import oAuthRouter from './routers/oAuthRouter';
 import corsMiddleware from './middlewares/cors';
 import { NODE_ENV, DEV_NODE_SERVER_PORT } from './config/index';
 import githubWebhookHandler from './thirdParties/github/webhookHandler';
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(userRouter);
 app.use(servicesRouter);
 app.use(zappRouter);
+app.use(oAuthRouter);
 
 // register webhook handlers
 app.use(githubWebhookHandler);
