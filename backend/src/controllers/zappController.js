@@ -30,7 +30,6 @@ const createZapp = async (req, res) => {
   });
 
   const token = await req.user.getServiceToken(zapp.trigger.serviceName);
-
   try {
     // TODO: make it async, but as thee
     const webhookResponse = await createWebHook({
