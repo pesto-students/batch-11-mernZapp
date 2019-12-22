@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,14 +22,13 @@ const useStyles = makeStyles((theme) => ({
 const SimpleSelect = (props) => {
   const classes = useStyles();
   const [activity, setValue] = React.useState('');
-  const { type, values, onchange, action } = props;
+  const { type, values, onchange } = props;
   const optionsValues = values;
   const handleChange = async (event) => {
     setValue(event.target.value);
     onchange(event.target.value);
   };
 
-  console.log(optionsValues);
 
   return (
     <div>
@@ -58,12 +58,11 @@ const SimpleSelect = (props) => {
 };
 
 SimpleSelect.propTypes = {
-  values: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  values: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
+  onchange: PropTypes.func,
 };
-// export default connect({
-//   zappAction,
-// })(SimpleSelect);
 
 const mapStateToProps = (state) => ({
   action: state.creatzapp,

@@ -17,6 +17,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    margin: 1rem;
 }
 .down-arrow {
     display: flex;
@@ -25,4 +26,13 @@
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+.zapp_field {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-items: self-end;
+    width: 100%;
+    margin: 15px;
 }

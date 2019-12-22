@@ -21,16 +21,13 @@ const useStyles = makeStyles((theme) => ({
 const ActionSelect = (props) => {
   const classes = useStyles();
   const [activity, setValue] = React.useState('');
-  const { type, values } = props;
+  const { type, values, onchange } = props;
   const optionsValues = values;
   console.log(props);
   const handleChange = async (event) => {
-    console.log(event.target.value);
     setValue(event.target.value);
-    // zappAction(event.target.value);
-    // onchange(event.target.value);
+    onchange(event.target.value);
   };
-  console.log(optionsValues);
 
   return (
     <div>
@@ -60,8 +57,10 @@ const ActionSelect = (props) => {
 };
 
 ActionSelect.propTypes = {
-  values: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  values: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
+  onchange: PropTypes.func.isRequired,
 };
 // export default connect({
 //   zappAction,
