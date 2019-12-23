@@ -92,15 +92,17 @@ const createGist = ({
       'User-Agent': GITHUB_APIS_USER_AGENT_HEADER,
     },
   };
-  const log = new ZappLog({
-    zapp: zapp._id,
-    zappName: zapp.name,
-    owner: zapp.owner,
-    triggerData: req,
-    actionData: responseBody,
-    success: true,
-  });
-  log.save();
+  if (zapp) {
+    const log = new ZappLog({
+      zapp: zapp._id,
+      zappName: zapp.name,
+      owner: zapp.owner,
+      triggerData: req,
+      actionData: responseBody,
+      success: true,
+    });
+    log.save();
+  }
   request(responseBody);
 };
 
