@@ -3,7 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ZappTabs from './Tabs';
-import CreateZapp from './CreateZapp';
+import CreateZapp from './CreateZappBtn';
+import Header from '../header/Header';
 import './zapp.css';
 
 
@@ -13,6 +14,7 @@ const Dashboard = ({ auth: { user } }) => {
   }
   return (
     <div className="zappContainer">
+      <Header />
       <CreateZapp />
       <div className="dashboardwrapper">
         <ZappTabs />

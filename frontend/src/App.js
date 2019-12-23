@@ -8,17 +8,15 @@ import Login from './containers/signIn/SignIn';
 import Routes from './routing/Routes';
 import Alert from './components/Alert';
 import { loadUser } from './actions/auth';
-import setAuthToken from './utils/setAuthToken';
-
 import './App.css';
 
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
+  // if (localStorage.token) {
+  //   setAuthToken(localStorage.token);
+  // }
 
   return (
     <Provider store={store}>

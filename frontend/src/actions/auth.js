@@ -12,9 +12,11 @@ import {
 import setAuthToken from '../utils/setAuthToken';
 
 
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   if (localStorage.token) {
     setAuthToken(localStorage.token);
+    // eslint-disable-next-line no-undef
+    // setAuthToken(localStorage.token);
   }
   const loginApi = '/users/login';
 
@@ -33,7 +35,7 @@ export const loadUser = () => async dispatch => {
 };
 
 
-export const register = ({ username, email, password }) => async dispatch => {
+export const register = ({ username, email, password }) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -60,7 +62,7 @@ export const register = ({ username, email, password }) => async dispatch => {
 };
 
 // Login User
-export const login = (email, password) => async dispatch => {
+export const login = (email, password) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -71,7 +73,9 @@ export const login = (email, password) => async dispatch => {
 
   try {
     const res = await axios.post(`${BASE_URL}${loginApi}`, body, config);
-
+    if (res) {
+      localStorage.setItem('token', res.data.token);
+    }
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,

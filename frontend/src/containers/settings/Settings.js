@@ -8,9 +8,8 @@ import { Subheadings } from '../../components/Subheading';
 import Switches from '../../components/Switches';
 import { ZappButton } from '../../components/StyledButton';
 import { TypographyComponent } from '../../components/Typography';
-import {
-  Wrapper,
-} from '../../components/FormCss';
+import Header from '../header/Header';
+import '../../App.css';
 
 const ItemContainer = styled.div`
   position: relative;
@@ -53,8 +52,9 @@ const ChangePassword = styled.div`
 
 const Settings = () => (
   <Container component="main">
+    <Header />
     <CssBaseline />
-    <Wrapper direction="column">
+    <div className="wrapper" direction="column">
       <TypographyComponent component="h1" variant="h5" text="Settings" />
       <ZappDivider />
       <ItemContainer>
@@ -97,7 +97,7 @@ const Settings = () => (
           <Switches />
         </ItemName>
       </ItemContainer>
-    </Wrapper>
+    </div>
   </Container>
 );
 
