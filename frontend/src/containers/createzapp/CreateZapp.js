@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/require-default-props */
 import React, { useState, useEffect } from 'react';
@@ -17,19 +18,24 @@ import ActionService from '../../components/Dropdown/ActionService';
 import { BASE_URL } from '../../utils/env';
 import { setAlert } from '../../actions/alert';
 import './create-zapp.css';
+import '../../App.css';
+import Header from '../header/Header';
 import { zappService, zappAction } from '../../actions/createzapp';
 import SignInWithGithub from '../githubOAuth';
 
 const { token } = localStorage;
 const config = {
-  'Content-Type': 'application/json',
-  token: `Bearer ${token}`,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 };
+// eslint-disable-next-line no-shadow
 const CreateZapp = ({ zappService, services }) => {
   useEffect(() => {
     zappService();
   }, [zappService]);
   const [inputDiv, setinputDiv] = useState(false);
+  const [success, setSuccess] = useState(false);
   const [action, setAction] = useState({ actions: ['create_gist_list'] });
   const [zapptitle, setTitle] = useState({ actions: ['create_gist_list'] });
   const [actionService, setActionService] = useState({ triggers: ['action_service'] });
@@ -66,7 +72,7 @@ const CreateZapp = ({ zappService, services }) => {
 
   const onProceed = async () => {
     const body = {
-      title: zapptitle.zappname,
+      name: zapptitle.zappname,
       action: {
         serviceName: 'github',
         name: action.actions[0],
@@ -92,7 +98,13 @@ const CreateZapp = ({ zappService, services }) => {
 
     try {
       const res = await axios.post(`${BASE_URL}${createzappApi}`, body, config);
-      setAlert('Zapp Created Successfully', 'danger');
+      if (res) {
+        setAlert('Zapp Created Successfully', 'danger');
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 5000);
+      }
     } catch (err) {
       setAlert('Zapp cannot be created', 'danger');
     }
@@ -102,8 +114,16 @@ const CreateZapp = ({ zappService, services }) => {
     <> laoding..........</>
   ) : (
     <Container component="main">
+      <Header />
       <CssBaseline />
       <div className="create-zapp">
+        {success ? (
+          <div className="alert">
+            <h2 className="alert-msg">
+            Zapp Created Successfully
+            </h2>
+          </div>
+        ) : ''}
         <Typography component="h1" variant="h5">
           CreateZapp
         </Typography>
