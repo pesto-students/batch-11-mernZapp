@@ -40,6 +40,7 @@ export default function (state = initialState, action) {
     case AUTH_ERROR:
     case LOGIN_FAIL:
       // eslint-disable-next-line no-undef
+      // localStorage.removeItem('token');
       return {
         ...state,
         token: null,

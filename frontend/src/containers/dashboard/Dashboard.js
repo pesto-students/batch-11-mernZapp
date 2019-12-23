@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ZappTabs from './Tabs';
-import CreateZapp from './CreateZapp';
+import CreateZapp from './CreateZappBtn';
 import './zapp.css';
 
 
