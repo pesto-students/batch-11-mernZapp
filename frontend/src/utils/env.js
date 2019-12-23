@@ -1,4 +1,4 @@
-const BASE_URL = 'https://mern-zap.herokuapp.com';
+const BASE_URL = 'https://mern-zap-2.herokuapp.com';
 const REACT_BUNDLE_BASE_URL = 'https://mernzap.netlify.com';
 
 const REGISTER_GITHUB_OAUTH_TOKEN_URL = `${BASE_URL}/personaloauth`;
