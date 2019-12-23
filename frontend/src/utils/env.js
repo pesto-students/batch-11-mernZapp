@@ -1,5 +1,5 @@
-const BASE_URL = 'http://localhost:4000';
-const REACT_BUNDLE_BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://mern-zap.herokuapp.com';
+const REACT_BUNDLE_BASE_URL = 'https://mernzap.netlify.com';
 
 const REGISTER_GITHUB_OAUTH_TOKEN_URL = `${BASE_URL}/personaloauth`;
 const GITHUB_OAUTH_URL = 'https://github.com/login/oauth/authorize?client_id=ed6fd12498c202cc79a0';
