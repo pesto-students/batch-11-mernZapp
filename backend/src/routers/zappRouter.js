@@ -12,6 +12,6 @@ router.post('/create-zapp', auth, createZapp);
 
 router.delete('/delete-zapp/:zapid', auth, deleteZapp);
 
-router.post('/zapp-logs', auth, zappLogs);
+router.get('/zapp-logs', auth, zappLogs);
 
 export default router;
