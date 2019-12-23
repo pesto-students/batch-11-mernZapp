@@ -1,4 +1,5 @@
 import request from '../../lib/requestPromisified';
+import ZappLog from '../../models/zappLogModel';
 import {
   CREATE_HOOK_URL,
   GET_BASIC_USER_INFO,
@@ -76,15 +77,32 @@ const deleteHook = ({
   });
 };
 
-const createGist = ({ token, requestData }) => request({
-  url: CREATE_GIST_URL,
-  method: 'POST',
-  json: requestData,
-  headers: {
-    Authorization: `token ${token}`,
-    'User-Agent': GITHUB_APIS_USER_AGENT_HEADER,
-  },
-});
+const createGist = ({
+  token,
+  requestData,
+  req,
+  zapp,
+}) => {
+  const responseBody = {
+    url: CREATE_GIST_URL,
+    method: 'POST',
+    json: requestData,
+    headers: {
+      Authorization: `token ${token}`,
+      'User-Agent': GITHUB_APIS_USER_AGENT_HEADER,
+    },
+  };
+  const log = new ZappLog({
+    zapp: zapp._id,
+    zappName: zapp.name,
+    owner: zapp.owner,
+    triggerData: req,
+    actionData: responseBody,
+    success: true,
+  });
+  log.save();
+  request(responseBody);
+};
 
 const getBasicUserInfo = ({ token }) => request({
   url: GET_BASIC_USER_INFO,

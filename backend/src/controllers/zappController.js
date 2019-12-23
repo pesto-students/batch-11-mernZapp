@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Zapp from '../models/zappModel';
 import ZappLog from '../models/zappLogModel';
 import { createWebHook, deleteWebHook } from './thirdPartiesController';
@@ -79,7 +80,9 @@ const deleteZapp = async (req, res) => {
 const zappLogs = async (req, res) => {
   const { user } = req.user;
   try {
-    const zappLogList = await ZappLog.find({ owner: user._id }, 'zapp zappName success createdAt');
+    const zappLogList = await ZappLog.find({ owner: user._id }, 'zapp zappName success createdAt')
+      .populate('zapp', 'trigger')
+      .populate('zapp', 'action');
     return res.status(200).send(zappLogList);
   } catch (error) {
     console.log(error);
