@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   createHook,
   getBasicUserInfo,
@@ -85,7 +86,7 @@ const deleteWebHook = async ({
   }
 };
 
-const sendAction = async zapp => {
+const sendAction = async (zapp, req) => {
   if (zapp.action.serviceName === 'github') {
     if (zapp.action.name === 'create_gist') {
       // create gist
@@ -93,18 +94,24 @@ const sendAction = async zapp => {
       const requestData = zapp.actionRequestBody;
       const token = user.services.filter(service => service.name === 'github')[0].oAuthToken;
       console.log(token, requestData, user);
-      return createGist({ token, requestData });
+      return createGist({
+        token,
+        requestData,
+        req,
+        zapp,
+      });
     }
   }
   return '';
 };
 
-const handleGithubWebhookEvent = async reqBody => {
+const handleGithubWebhookEvent = async req => {
   try {
+    const reqBody = req.body;
     const zapp = await Zapp.findOne({ 'trigger.webhookResponse.id': reqBody.hook.id });
     console.log(zapp);
     if (zapp) {
-      return sendAction(zapp);
+      return sendAction(zapp, req);
     }
     return '';
   } catch (error) {

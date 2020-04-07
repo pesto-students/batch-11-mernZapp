@@ -1,6 +1,5 @@
+/* eslint-disable no-console */
 import express from 'express';
-import dotenv from 'dotenv';
-import path from 'path';
 import initDb from './db/mongoose';
 import userRouter from './routers/userRouter';
 import servicesRouter from './routers/servicesRouter';

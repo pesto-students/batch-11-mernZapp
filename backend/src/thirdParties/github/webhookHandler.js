@@ -4,8 +4,9 @@ import { handleGithubWebhookEvent } from '../../controllers/thirdPartiesControll
 const router = new express.Router();
 
 router.post('/githubwebhook', (req, res) => {
+  // eslint-disable-next-line no-console
   console.log(req.body);
-  handleGithubWebhookEvent(req.body);
+  handleGithubWebhookEvent(req);
   res.status(200).send({ key: 'hello' });
 });
 

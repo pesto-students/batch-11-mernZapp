@@ -1,25 +1,22 @@
-import axios from 'axios';
-import { setAlert } from './alert';
-import { BASE_URL } from '../utils/env';
+/* eslint-disable no-console */
 import { GET_SERVICES, GET_ACTION } from './types';
-import setAuthToken from '../utils/setAuthToken';
 
- const zappService = () => async dispatch => {
+const zappService = () => async (dispatch) => {
   // eslint-disable-next-line no-undef
   if (localStorage.token) {
     // eslint-disable-next-line no-undef
     // setAuthToken(localStorage.token);
-}
-const token = localStorage.token;
-const config = {
-  headers: {
-    'Content-Type': 'application/json',
-    'token': `Bearer ${token}`
-  },
-};
-console.log(token);
+  }
+
+  const { token } = localStorage;
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      token: `Bearer ${token}`,
+    },
+  };
+  console.log(token);
   console.log(config);
-  const servicesApi = '/services';
 
   try {
     // const res = await axios.get(`${BASE_URL}${servicesApi}`, config);
@@ -38,22 +35,21 @@ console.log(token);
     // });
   }
 };
-///actions/:service
-const zappAction =  (action) => async dispatch => {
+// /actions/:service
+const zappAction = () => async (dispatch) => {
   if (localStorage.token) {
     // eslint-disable-next-line no-undef
     // setAuthToken(localStorage.token);
-}
-const token = localStorage.token;
-const config = {
-  headers: {
-    'Content-Type': 'application/json',
-    'token': `Bearer ${token}`
-  },
-};
-console.log(token);
+  }
+  const { token } = localStorage;
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      token: `Bearer ${token}`,
+    },
+  };
+  console.log(token);
   console.log(config);
-  const actionApi = `/services/${action}`;
 
   try {
     // const res = await axios.get(`${BASE_URL}${actionApi}`, config);
@@ -73,6 +69,7 @@ console.log(token);
     //   type: AUTH_ERROR,
     // });
   }
+  return undefined;
 };
 
 export { zappService, zappAction };
